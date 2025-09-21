@@ -12,5 +12,16 @@ class Standup(db.Model):
     today = db.Column(db.Text, nullable=False)
     blockers = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now(timezone.utc))
+    public = db.Column(db.Boolean, default=False, nullable=False)
 
-# TODO: #5 Add relationship to User model
+# TODO: #5 Add Standup-User relationship
+
+class Journal(db.Model):
+    id = db.Column(db.Integet, primary_key=True)
+    title= db.Column(db.String(200), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    tags = db.Column(db.String(200), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.now(timezone.utc))
+    public = db.Column(db.Boolean, default=False, nullable=False)
+
+# TODO: Add Journal-User relationship
